@@ -8,7 +8,7 @@ public class DadosMissao {
     private String coordenadasFinais;
     private int numeroTripulantes;
 
-    public DadosMissao(double nivelCombustivel, String coordenadasFinais, String coordenadasIniciais, int numeroTripulantes) {
+    public DadosMissao(double nivelCombustivel, String coordenadasIniciais, String coordenadasFinais, int numeroTripulantes) {
         this.setNivelCombustivel(nivelCombustivel);
         this.setCoordenadasIniciais(coordenadasIniciais);
         this.setCoordenadasFinais(coordenadasFinais);
@@ -20,19 +20,19 @@ public class DadosMissao {
     }
 
     public String verificarCombustivel(){
-        if (this.nivelCombustivel < 20){
-            return "Combustível atual: " + this.nivelCombustivel + "%" + " - Alerta: combustível menor que 20%";
+        if (getNivelCombustivel() < 20 && getNivelCombustivel() > 0){
+            return "Combustível atual: " + getNivelCombustivel() + "%" + " - Alerta: combustível menor que 20%";
         }
-        return "Combustível atual: " + this.nivelCombustivel + "%";
+        return "Combustível atual: " + getNivelCombustivel() + "%";
     }
 
     public void imprimirDados(String senha){
         if (verificarSenha(senha)){
-            System.out.println("= DADOS DA MISSÃO =");
-            System.out.println("Número de Tripulantes: " + this.numeroTripulantes);
-            System.out.println("Coordenadas Atuais: " + this.coordenadasIniciais);
-            System.out.println("Coordenadas Finais: " + this.coordenadasFinais);
-            System.out.println("Nivel de Combustível: " + verificarCombustivel());
+            System.out.println("== DADOS DA MISSÃO ==");
+            System.out.println("Número de Tripulantes: " + getNumeroTripulantes());
+            System.out.println("Coordenadas Atuais: " + getCoordenadasIniciais());
+            System.out.println("Coordenadas Finais: " + getCoordenadasFinais());
+            System.out.println(verificarCombustivel());
         }
         else {
             System.out.println("Acesso Negado");
@@ -55,13 +55,35 @@ public class DadosMissao {
 
     public String getCoordenadasFinais() {return coordenadasFinais;}
 
-    private void setCoordenadasFinais(String coordenadasFinais) {this.coordenadasFinais = coordenadasFinais;}
+    private void setCoordenadasFinais(String coordenadasFinais) {
+        if (coordenadasFinais == null || coordenadasFinais.isBlank()) {
+            this.coordenadasFinais = "Não definida";
+        }
+        else {
+            this.coordenadasFinais = coordenadasFinais;
+        }
+    }
 
     public int getNumeroTripulantes() {return numeroTripulantes;}
 
-    private void setNumeroTripulantes(int numeroTripulantes) {this.numeroTripulantes = numeroTripulantes; }
+    private void setNumeroTripulantes(int numeroTripulantes) {
+        if (numeroTripulantes < 0){
+            this.numeroTripulantes = 0;
+        }
+        else {
+            this.numeroTripulantes = numeroTripulantes;
+        }
+    }
 
     public String getCoordenadasIniciais() {return coordenadasIniciais;}
 
-    private void setCoordenadasIniciais(String coordenadasIniciais) {this.coordenadasIniciais = coordenadasIniciais;}
+    private void setCoordenadasIniciais(String coordenadasIniciais) {
+        if (coordenadasIniciais == null || coordenadasIniciais.isBlank()) {
+            this.coordenadasIniciais = "Não definida";
+        }
+        else {
+            this.coordenadasIniciais = coordenadasIniciais;
+        }
+    }
 }
+
