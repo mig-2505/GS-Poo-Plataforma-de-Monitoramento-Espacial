@@ -2,7 +2,6 @@ package br.com.projetoespacial.model;
 
 public class DadosMissao {
 
-    private final String senha = "AM4556";
     private double nivelCombustivel;
     private String coordenadasIniciais;
     private String coordenadasFinais;
@@ -15,10 +14,6 @@ public class DadosMissao {
         this.setNumeroTripulantes(numeroTripulantes);
     }
 
-    public boolean verificarSenha(String senha) {
-        return this.senha.equals(senha);
-    }
-
     public String verificarCombustivel(){
         if (getNivelCombustivel() < 20 && getNivelCombustivel() > 0){
             return "Combustível atual: " + getNivelCombustivel() + "%" + " - Alerta: combustível menor que 20%";
@@ -26,17 +21,12 @@ public class DadosMissao {
         return "Combustível atual: " + getNivelCombustivel() + "%";
     }
 
-    public void imprimirDados(String senha){
-        if (verificarSenha(senha)){
-            System.out.println("== DADOS DA MISSÃO ==");
-            System.out.println("Número de Tripulantes: " + getNumeroTripulantes());
-            System.out.println("Coordenadas Atuais: " + getCoordenadasIniciais());
-            System.out.println("Coordenadas Finais: " + getCoordenadasFinais());
-            System.out.println(verificarCombustivel());
-        }
-        else {
-            System.out.println("Acesso Negado");
-        }
+    public void imprimirDados(){
+        System.out.println("== DADOS DA MISSÃO ==");
+        System.out.println("Número de Tripulantes: " + getNumeroTripulantes());
+        System.out.println("Coordenadas Atuais: " + getCoordenadasIniciais());
+        System.out.println("Coordenadas Finais: " + getCoordenadasFinais());
+        System.out.println(verificarCombustivel());
     }
 
     public double getNivelCombustivel() {return nivelCombustivel;}

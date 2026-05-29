@@ -8,12 +8,12 @@ abstract class ComponenteEspacial {
     private double temperatura;
 
     public void ligar(){
-        System.out.println("Ligando componentes...");
+        System.out.println("Ligando componente...");
     }
 
     public void desligar(){
-        System.out.println("Desligando componentes...");
+        System.out.println("Desligando componente...");
     }
 
-    abstract void executarFuncao();
+    abstract void mostrarDados();
 }

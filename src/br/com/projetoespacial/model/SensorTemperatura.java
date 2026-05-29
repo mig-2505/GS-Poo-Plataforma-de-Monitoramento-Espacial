@@ -3,9 +3,9 @@ package br.com.projetoespacial.model;
 import br.com.projetoespacial.interfaces.Sensor;
 import br.com.projetoespacial.data.DadosAleatorios;
 
-public class SensorTemperatura implements Sensor {
+public class SensorTemperatura extends ComponenteEspacial implements Sensor{
     DadosAleatorios temp = new DadosAleatorios();
-    double temperatura = temp.getTemperatura();
+    private final double temperatura = temp.getTemperatura();
 
     @Override
     public void lerValor() {
@@ -19,7 +19,7 @@ public class SensorTemperatura implements Sensor {
 
     @Override
     public void retornarTipo() {
-        System.out.println("Sensor de Temperatura");
+        System.out.println("Tipo: Sensor de Temperatura");
     }
 
     public void alertaTemp(){
@@ -38,6 +38,15 @@ public class SensorTemperatura implements Sensor {
         else {
             System.out.println("Temperatura sem riscos! ( " + temperatura + " C° )");
         }
+    }
+
+    @Override
+    public void mostrarDados() {
+        System.out.println("== SENSOR TEMPERATURA ==");
+        lerValor();
+        verificarFuncionamento();
+        retornarTipo();
+        alertaTemp();
     }
 }
 

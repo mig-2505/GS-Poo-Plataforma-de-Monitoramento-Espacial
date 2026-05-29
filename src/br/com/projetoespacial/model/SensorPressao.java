@@ -3,10 +3,10 @@ package br.com.projetoespacial.model;
 import br.com.projetoespacial.interfaces.Sensor;
 import br.com.projetoespacial.data.DadosAleatorios;
 
-public class SensorPressao implements Sensor{
+public class SensorPressao extends ComponenteEspacial implements Sensor{
 
     DadosAleatorios pressaoEspacial = new DadosAleatorios();
-    double pressao = pressaoEspacial.getPressao();
+    private final double pressao = pressaoEspacial.getPressao();
 
     @Override
     public void lerValor() {
@@ -20,7 +20,7 @@ public class SensorPressao implements Sensor{
 
     @Override
     public void retornarTipo() {
-        System.out.println("Sensor de Pressão");
+        System.out.println("Tipo: Sensor de Pressão");
     }
 
     public void alertaPressao() {
@@ -42,4 +42,12 @@ public class SensorPressao implements Sensor{
         }
     }
 
+    @Override
+    public void mostrarDados() {
+        System.out.println("== SENSOR PRESSÃO ==");
+        lerValor();
+        verificarFuncionamento();
+        retornarTipo();
+        alertaPressao();
+    }
 }

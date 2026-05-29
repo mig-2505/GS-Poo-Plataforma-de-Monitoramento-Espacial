@@ -3,10 +3,10 @@ package br.com.projetoespacial.model;
 import br.com.projetoespacial.data.DadosAleatorios;
 import br.com.projetoespacial.interfaces.Sensor;
 
-public class SensorRadiacao implements Sensor {
+public class SensorRadiacao extends ComponenteEspacial implements Sensor {
 
     DadosAleatorios radiacaoEspacial = new DadosAleatorios();
-    double radiacao = radiacaoEspacial.getRadiacao();
+    private final double radiacao = radiacaoEspacial.getRadiacao();
 
     @Override
     public void lerValor() {
@@ -15,13 +15,12 @@ public class SensorRadiacao implements Sensor {
 
     @Override
     public void verificarFuncionamento() {
-        System.out.println(
-                "Sensor de radiação funcionando perfeitamente!");
+        System.out.println("Funcionando perfeitamente!");
     }
 
     @Override
     public void retornarTipo() {
-        System.out.println("Sensor de Radiação");
+        System.out.println("Tipo: Sensor de Radiação");
     }
 
     public void alertaRadiacao() {
@@ -41,5 +40,14 @@ public class SensorRadiacao implements Sensor {
         else {
             System.out.println("Crítico: Radiação extrema detectada! ( " + radiacao + " mSv )");
         }
+    }
+
+    @Override
+    public void mostrarDados() {
+        System.out.println("== SENSOR RADIAÇÃO ==");
+        lerValor();
+        verificarFuncionamento();
+        retornarTipo();
+        alertaRadiacao();
     }
 }
