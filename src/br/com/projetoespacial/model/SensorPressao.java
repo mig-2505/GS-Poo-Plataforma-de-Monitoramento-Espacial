@@ -10,7 +10,7 @@ public class SensorPressao extends ComponenteEspacial implements Sensor{
 
     @Override
     public void lerValor() {
-        System.out.println("Pressão atual: " + pressao + " C°");
+        System.out.println("Pressão atual: " + pressao + " hPa");
     }
 
     @Override
