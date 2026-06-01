@@ -148,20 +148,6 @@ Operações disponíveis:
 - Loop principal contínuo
 - Retorno automático às opções do menu
 
-## Estrutura de Arquivos
-projeto-espacial/ 
-├── ComponenteEspacial.java (classe abstrata base) 
-├── Sensor.java (interface de sensores) 
-├── DadosMissao.java (encapsulamento de dados) 
-├── SistemaPropulsao.java (classe abstrata de propulsão) 
-├── PropulsaoQuimica.java (implementação específica) 
-├── PropulsaoEletrica.java (implementação específica) 
-├── SensorTemperatura.java (implementação de sensor) 
-├── SensorPressao.java (implementação de sensor) 
-├── SensorRadiacao.java (implementação de sensor) 
-└── SistemaMonitoramento.java (aplicação principal com menu)
-
-
 ## Funcionalidades Implementadas
 
 ### Sistema de Sensores
